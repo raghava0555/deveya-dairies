@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scan to Visit | Deveya Dairies</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <style>
+    body{min-height:100vh;background:#f5e8e3;display:grid;place-items:center;padding:20px}
+    .scan-card{background:#fffaf5;width:min(100%,480px);padding:30px;border-radius:16px;text-align:center;box-shadow:0 15px 50px #6b4c4c18}
+    .scan-card h1{font:500 36px 'Playfair Display',serif;margin:12px 0}
+    .scan-card p{font-size:13px;line-height:1.8;color:#786c6c}
+    #reader{width:100%;margin:20px auto;overflow:hidden}
+    .scan-button{border:0;background:#3d3434;color:white;padding:13px 20px;border-radius:4px;font:600 12px 'DM Sans',sans-serif;cursor:pointer}
+    #status{overflow-wrap:anywhere}
+    .scan-logo{font-size:38px;color:#b96678}
+    .back-link{display:inline-block;margin-top:18px;font-size:12px;text-decoration:underline}
+  </style>
+</head>
+<body>
+  <main class="scan-card">
+    <div class="scan-logo">✿</div>
+    <p class="eyebrow">DEVEYA DAIRIES · BOUQUETS & GIFTS</p>
+    <h1>Scan something lovely.</h1>
+    <p>Allow camera access, then scan a QR code containing a website link to continue.</p>
+    <div id="reader"></div>
+    <button class="scan-button" id="start">Start camera scanner</button>
+    <p id="status">Your camera starts when you tap the button.</p>
+    <a class="back-link" href="index.html">Visit Deveya Dairies directly</a>
+  </main>
+  <script>
+    const startButton = document.getElementById("start");
+    const status = document.getElementById("status");
+    let scanner;
+    let busy = false;
+
+    startButton.addEventListener("click", async () => {
+      if (busy) return;
+      busy = true;
+      startButton.disabled = true;
+      status.textContent = "Requesting camera permission…";
+      scanner = new Html5Qrcode("reader");
+
+      try {
+        await scanner.start(
+          { facingMode: "environment" },
+          { fps: 10, qrbox: { width: 230, height: 230 } },
+          async decodedText => {
+            let url;
+            try {
+              url = new URL(decodedText);
+              if (!["http:", "https:"].includes(url.protocol)) throw new Error();
+            } catch {
+              status.textContent = "That QR code is not a valid website link. Please scan a website QR code.";
+              return;
+            }
+            status.textContent = "Opening website…";
+            try { await scanner.stop(); } catch {}
+            window.location.href = url.href;
+          },
+          () => {}
+        );
+        status.textContent = "Camera is ready. Point it at a website QR code.";
+      } catch (error) {
+        busy = false;
+        startButton.disabled = false;
+        status.textContent = "Could not start camera. Allow camera access and open this page over HTTPS or localhost.";
+      }
+    });
+  </script>
+</body>
+</html>
