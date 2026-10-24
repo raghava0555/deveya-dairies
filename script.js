@@ -1,34 +1,70 @@
-// IMPORTANT: WhatsApp numbers must contain country code and digits only.
-// Replace this with your business number if you need to change it.
+```javascrip
+// WhatsApp business number: country code + number, digits only
 const WHATSAPP_NUMBER = "918378950555";
 
 function openWhatsApp(message) {
-  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
-  window.open(url, "_blank", "noopener,noreferrer");
+  const url =
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(message);
+
+  window.location.href = url;
 }
 
-document.querySelectorAll(".order-button").forEach(button => {
-  button.addEventListener("click", () => {
-    const product = button.dataset.product;
-    const price = button.dataset.price;
-    openWhatsApp(`Hello Deveya Dairies! I'd like to order: ${product} (${price}). Please share availability and delivery details.`);
-  });
-});
+document.addEventListener("DOMContentLoaded", function () {
+  // Product order buttons
+  document.querySelectorAll(".order-button").forEach(button => {
+    button.addEventListener("click", function () {
+      const product = this.dataset.product;
+      const price = this.dataset.price;
 
-document.getElementById("general-order").addEventListener("click", event => {
-  event.preventDefault();
-  openWhatsApp("Hello Deveya Dairies! I'd like to enquire about your bouquets and gifts.");
-});
+      const message =
+        `Hello Deveya Dairies! I'd like to order: ${product} (${price}). ` +
+        "Please share availability and delivery details.";
 
-document.querySelectorAll(".filter").forEach(button => {
-  button.addEventListener("click", () => {
-    document.querySelectorAll(".filter").forEach(item => item.classList.remove("active"));
-    button.classList.add("active");
-    const filter = button.dataset.filter;
-    document.querySelectorAll(".product-card").forEach(card => {
-      card.style.display = filter === "all" || card.dataset.category === filter ? "" : "none";
+      openWhatsApp(message);
     });
   });
-});
 
-document.getElementById("year").textContent = new Date().getFullYear();
+  // General WhatsApp contact button
+  const generalOrder = document.getElementById("general-order");
+
+  if (generalOrder) {
+    generalOrder.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      openWhatsApp(
+        "Hello Deveya Dairies! I'd like to enquire about your bouquets and gifts."
+      );
+    });
+  }
+
+  // Product filters
+  document.querySelectorAll(".filter").forEach(button => {
+    button.addEventListener("click", function () {
+      document.querySelectorAll(".filter").forEach(item => {
+        item.classList.remove("active");
+      });
+
+      this.classList.add("active");
+
+      const filter = this.dataset.filter;
+
+      document.querySelectorAll(".product-card").forEach(card => {
+        card.style.display =
+          filter === "all" || card.dataset.category === filter
+            ? ""
+            : "none";
+      });
+    });
+  });
+
+  // Copyright year
+  const year = document.getElementById("year");
+
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
+});
+```
