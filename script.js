@@ -1,111 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Deveya Dairies — bouquets, flowers and thoughtful gifts. Order on WhatsApp.">
-  <title>Deveya Dairies | Bouquets & Gifts</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="announcement">Little things, lovely memories ✿ Made with love</div>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Deveya Dairies home">
-      <span class="brand-mark">✿</span>
-      <span><strong>Deveya Dairies</strong><small>BOUQUETS & GIFTS</small></span>
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">Our Story</a><a href="#contact">Contact</a>
-    </nav>
-    <a class="header-cta" href="#shop">Explore gifts <span>↗</span></a>
-  </header>
+// IMPORTANT: WhatsApp numbers must contain country code and digits only.
+// Replace this with your business number if you need to change it.
+const WHATSAPP_NUMBER = "918378950555";
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow">FLOWERS FOR EVERY FEELING</p>
-        <h1>Make their day<br><em>a little more lovely.</em></h1>
-        <p class="hero-text">Thoughtful bouquets and sweet little surprises for birthdays, celebrations, and just-because moments.</p>
-        <div class="hero-actions">
-          <a class="button button-dark" href="#shop">Explore the collection <span>→</span></a>
-          <a class="text-link" href="#contact">Have something special in mind?</a>
-        </div>
-        <div class="hero-note"><span>✿</span> Thoughtfully picked. Beautifully wrapped. Always heartfelt.</div>
-      </div>
-      <div class="hero-art" role="img" aria-label="Decorative illustration of flowers and a gift">
-        <div class="sun-disc"></div>
-        <div class="hero-sticker">A little<br>joy, wrapped<br>with love ♡</div>
-        <div class="flower flower-one"><i></i><i></i><i></i><i></i><i></i><b></b></div>
-        <div class="flower flower-two"><i></i><i></i><i></i><i></i><i></i><b></b></div>
-        <div class="flower flower-three"><i></i><i></i><i></i><i></i><i></i><b></b></div>
-        <div class="leaf leaf-one"></div><div class="leaf leaf-two"></div><div class="leaf leaf-three"></div>
-        <div class="gift-box"><div class="gift-lid"></div><div class="gift-ribbon"></div><div class="gift-bow"></div></div>
-        <div class="hero-caption">THE ART OF GIVING</div>
-      </div>
-    </section>
+function openWhatsApp(message) {
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank", "noopener,noreferrer");
+}
 
-    <section class="trust-strip">
-      <span>✿ Thoughtful gifts</span><span>♡ Made for your moments</span><span>✧ Easy WhatsApp ordering</span>
-    </section>
+document.querySelectorAll(".order-button").forEach(button => {
+  button.addEventListener("click", () => {
+    const product = button.dataset.product;
+    const price = button.dataset.price;
+    openWhatsApp(`Hello Deveya Dairies! I'd like to order: ${product} (${price}). Please share availability and delivery details.`);
+  });
+});
 
-    <section class="shop-section section-pad" id="shop">
-      <div class="section-heading">
-        <div><p class="eyebrow">THE GIFT EDIT</p><h2>Find your kind of <em>lovely.</em></h2></div>
-        <p>Choose a favourite, then message us to personalise your order.</p>
-      </div>
-      <div class="filters" role="group" aria-label="Filter products">
-        <button class="filter active" data-filter="all">All gifts</button>
-        <button class="filter" data-filter="bouquet">Bouquets</button>
-        <button class="filter" data-filter="gift">Gift boxes</button>
-        <button class="filter" data-filter="special">Special moments</button>
-      </div>
-      <div class="product-grid" id="product-grid">
-        <article class="product-card" data-category="bouquet">
-          <div class="product-art art-rose"><span class="art-tag">BESTSELLER</span><div class="mini-bouquet rose-bouquet"><i>✿</i><i>✿</i><i>✿</i><i>✿</i><i>✿</i><b></b></div></div>
-          <div class="product-info"><div><h3>Blush Rose Bouquet</h3><p>Soft pinks, timeless romance</p></div><strong>₹499</strong></div>
-          <button class="order-button" data-product="Blush Rose Bouquet" data-price="₹499">Order on WhatsApp ↗</button>
-        </article>
-        <article class="product-card" data-category="bouquet">
-          <div class="product-art art-sun"><span class="art-tag">SUNNY FAVOURITE</span><div class="mini-bouquet sun-bouquet"><i>✿</i><i>✿</i><i>✿</i><i>✿</i><b></b></div></div>
-          <div class="product-info"><div><h3>Sunshine Bouquet</h3><p>Bright blooms, brighter days</p></div><strong>₹399</strong></div>
-          <button class="order-button" data-product="Sunshine Bouquet" data-price="₹399">Order on WhatsApp ↗</button>
-        </article>
-        <article class="product-card" data-category="gift">
-          <div class="product-art art-gift"><span class="art-tag">SWEET SURPRISE</span><div class="illustrated-gift"><div class="box-lid"></div><div class="box-body"></div><div class="box-band"></div><div class="box-bow">♡</div></div><span class="sparkle s1">✦</span><span class="sparkle s2">✧</span></div>
-          <div class="product-info"><div><h3>Little Joy Gift Box</h3><p>A lovely box of surprises</p></div><strong>₹599</strong></div>
-          <button class="order-button" data-product="Little Joy Gift Box" data-price="₹599">Order on WhatsApp ↗</button>
-        </article>
-        <article class="product-card" data-category="special">
-          <div class="product-art art-birthday"><span class="art-tag">CELEBRATE</span><div class="cake"><div class="cake-top">♡</div><div class="cake-layer"></div><div class="cake-base"></div><div class="candle">│<b>✦</b></div></div><span class="confetti c1">✧</span><span class="confetti c2">✦</span></div>
-          <div class="product-info"><div><h3>Birthday Cheer Set</h3><p>For their once-a-year magic</p></div><strong>₹749</strong></div>
-          <button class="order-button" data-product="Birthday Cheer Set" data-price="₹749">Order on WhatsApp ↗</button>
-        </article>
-        <article class="product-card" data-category="bouquet">
-          <div class="product-art art-lilac"><span class="art-tag">SOFT & SWEET</span><div class="mini-bouquet lilac-bouquet"><i>✿</i><i>✿</i><i>✿</i><i>✿</i><i>✿</i><b></b></div></div>
-          <div class="product-info"><div><h3>Lavender Daydream</h3><p>Gentle shades, lovely thoughts</p></div><strong>₹549</strong></div>
-          <button class="order-button" data-product="Lavender Daydream" data-price="₹549">Order on WhatsApp ↗</button>
-        </article>
-        <article class="product-card" data-category="gift">
-          <div class="product-art art-heart"><span class="art-tag">JUST BECAUSE</span><div class="heart-gift">♡<span>with love</span></div><span class="heart-spark">✧</span></div>
-          <div class="product-info"><div><h3>With Love Hamper</h3><p>A little reminder they matter</p></div><strong>₹699</strong></div>
-          <button class="order-button" data-product="With Love Hamper" data-price="₹699">Order on WhatsApp ↗</button>
-        </article>
-      </div>
-      <p class="price-note">Sample products and prices are for demonstration. Please update them to match your real catalogue.</p>
-    </section>
+document.getElementById("general-order").addEventListener("click", event => {
+  event.preventDefault();
+  openWhatsApp("Hello Deveya Dairies! I'd like to enquire about your bouquets and gifts.");
+});
 
-    <section class="story-section section-pad" id="about">
-      <div class="story-art"><div class="story-flower">✿</div><div class="story-circle">GIVE<br>WITH<br><em>heart.</em></div><span class="story-spark">✧</span></div>
-      <div class="story-copy"><p class="eyebrow">A LITTLE ABOUT US</p><h2>Every gift tells<br><em>a little story.</em></h2><p>At Deveya Dairies, we believe the smallest gestures can mean the most. From a just-because bouquet to a thoughtful celebration box, we're here to help you make ordinary days feel special.</p><a class="text-link" href="#contact">Let's make someone smile ↗</a></div>
-    </section>
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".filter").forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+    const filter = button.dataset.filter;
+    document.querySelectorAll(".product-card").forEach(card => {
+      card.style.display = filter === "all" || card.dataset.category === filter ? "" : "none";
+    });
+  });
+});
 
-    <section class="order-banner" id="contact">
-      <div><p class="eyebrow">HAVE A MOMENT TO CELEBRATE?</p><h2>Let's make it <em>beautiful.</em></h2><p>Tell us what you're dreaming of. We'll help you choose a thoughtful gift.</p></div>
-      <a class="button button-light" id="general-order" href="#">Chat with us on WhatsApp ↗</a>
-    </section>
-  </main>
-
-  <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">✿</span><span><strong>Deveya Dairies</strong><small>BOUQUETS & GIFTS</small></span></a><p>Made with love, for moments that matter.</p><span>© <span id="year"></span> Deveya Dairies</span></footer>
-  <script src="script.js"></script>
-</body>
-</html>
+document.getElementById("year").textContent = new Date().getFullYear();
