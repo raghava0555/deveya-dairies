@@ -1,5 +1,4 @@
-```javascrip
-// WhatsApp business number: country code + number, digits only
+```javascript
 const WHATSAPP_NUMBER = "918378950555";
 
 function openWhatsApp(message) {
@@ -14,14 +13,17 @@ function openWhatsApp(message) {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Product order buttons
-  document.querySelectorAll(".order-button").forEach(button => {
+  document.querySelectorAll(".order-button").forEach(function (button) {
     button.addEventListener("click", function () {
       const product = this.dataset.product;
       const price = this.dataset.price;
 
       const message =
-        `Hello Deveya Dairies! I'd like to order: ${product} (${price}). ` +
-        "Please share availability and delivery details.";
+        "Hello Deveya Dairies! I'd like to order: " +
+        product +
+        " (" +
+        price +
+        "). Please share availability and delivery details.";
 
       openWhatsApp(message);
     });
@@ -41,9 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Product filters
-  document.querySelectorAll(".filter").forEach(button => {
+  document.querySelectorAll(".filter").forEach(function (button) {
     button.addEventListener("click", function () {
-      document.querySelectorAll(".filter").forEach(item => {
+      document.querySelectorAll(".filter").forEach(function (item) {
         item.classList.remove("active");
       });
 
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const filter = this.dataset.filter;
 
-      document.querySelectorAll(".product-card").forEach(card => {
+      document.querySelectorAll(".product-card").forEach(function (card) {
         card.style.display =
           filter === "all" || card.dataset.category === filter
             ? ""
