@@ -1,111 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Deveya Dairies — bouquets, flowers and thoughtful gifts. Order on WhatsApp.">
-  <title>Deveya Dairies | Bouquets & Gifts</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff0ed"><title>Deveya Dairies | Bouquet & Gifts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="announcement">Little things, lovely memories ✿ Made with love</div>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Deveya Dairies home">
-      <span class="brand-mark">✿</span>
-      <span><strong>Deveya Dairies</strong><small>BOUQUETS & GIFTS</small></span>
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">Our Story</a><a href="#contact">Contact</a>
-    </nav>
-    <a class="header-cta" href="#shop">Explore gifts <span>↗</span></a>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow">FLOWERS FOR EVERY FEELING</p>
-        <h1>Make their day<br><em>a little more lovely.</em></h1>
-        <p class="hero-text">Thoughtful bouquets and sweet little surprises for birthdays, celebrations, and just-because moments.</p>
-        <div class="hero-actions">
-          <a class="button button-dark" href="#shop">Explore the collection <span>→</span></a>
-          <a class="text-link" href="#contact">Have something special in mind?</a>
-        </div>
-        <div class="hero-note"><span>✿</span> Thoughtfully picked. Beautifully wrapped. Always heartfelt.</div>
-      </div>
-      <div class="hero-art" role="img" aria-label="Decorative illustration of flowers and a gift">
-        <div class="sun-disc"></div>
-        <div class="hero-sticker">A little<br>joy, wrapped<br>with love ♡</div>
-        <div class="flower flower-one"><i></i><i></i><i></i><i></i><i></i><b></b></div>
-        <div class="flower flower-two"><i></i><i></i><i></i><i></i><i></i><b></b></div>
-        <div class="flower flower-three"><i></i><i></i><i></i><i></i><i></i><b></b></div>
-        <div class="leaf leaf-one"></div><div class="leaf leaf-two"></div><div class="leaf leaf-three"></div>
-        <div class="gift-box"><div class="gift-lid"></div><div class="gift-ribbon"></div><div class="gift-bow"></div></div>
-        <div class="hero-caption">THE ART OF GIVING</div>
-      </div>
-    </section>
-
-    <section class="trust-strip">
-      <span>✿ Thoughtful gifts</span><span>♡ Made for your moments</span><span>✧ Easy WhatsApp ordering</span>
-    </section>
-
-    <section class="shop-section section-pad" id="shop">
-      <div class="section-heading">
-        <div><p class="eyebrow">THE GIFT EDIT</p><h2>Find your kind of <em>lovely.</em></h2></div>
-        <p>Choose a favourite, then message us to personalise your order.</p>
-      </div>
-      <div class="filters" role="group" aria-label="Filter products">
-        <button class="filter active" data-filter="all">All gifts</button>
-        <button class="filter" data-filter="bouquet">Bouquets</button>
-        <button class="filter" data-filter="gift">Gift boxes</button>
-        <button class="filter" data-filter="special">Special moments</button>
-      </div>
-      <div class="product-grid" id="product-grid">
-        <article class="product-card" data-category="bouquet">
-          <div class="product-art art-rose"><span class="art-tag">BESTSELLER</span><div class="mini-bouquet rose-bouquet"><i>✿</i><i>✿</i><i>✿</i><i>✿</i><i>✿</i><b></b></div></div>
-          <div class="product-info"><div><h3>Blush Rose Bouquet</h3><p>Soft pinks, timeless romance</p></div><strong>₹499</strong></div>
-          <button class="order-button" data-product="Blush Rose Bouquet" data-price="₹499">Order on WhatsApp ↗</button>
-        </article>
-        <article class="product-card" data-category="bouquet">
-          <div class="product-art art-sun"><span class="art-tag">SUNNY FAVOURITE</span><div class="mini-bouquet sun-bouquet"><i>✿</i><i>✿</i><i>✿</i><i>✿</i><b></b></div></div>
-          <div class="product-info"><div><h3>Sunshine Bouquet</h3><p>Bright blooms, brighter days</p></div><strong>₹399</strong></div>
-          <button class="order-button" data-product="Sunshine Bouquet" data-price="₹399">Order on WhatsApp ↗</button>
-        </article>
-        <article class="product-card" data-category="gift">
-          <div class="product-art art-gift"><span class="art-tag">SWEET SURPRISE</span><div class="illustrated-gift"><div class="box-lid"></div><div class="box-body"></div><div class="box-band"></div><div class="box-bow">♡</div></div><span class="sparkle s1">✦</span><span class="sparkle s2">✧</span></div>
-          <div class="product-info"><div><h3>Little Joy Gift Box</h3><p>A lovely box of surprises</p></div><strong>₹599</strong></div>
-          <button class="order-button" data-product="Little Joy Gift Box" data-price="₹599">Order on WhatsApp ↗</button>
-        </article>
-        <article class="product-card" data-category="special">
-          <div class="product-art art-birthday"><span class="art-tag">CELEBRATE</span><div class="cake"><div class="cake-top">♡</div><div class="cake-layer"></div><div class="cake-base"></div><div class="candle">│<b>✦</b></div></div><span class="confetti c1">✧</span><span class="confetti c2">✦</span></div>
-          <div class="product-info"><div><h3>Birthday Cheer Set</h3><p>For their once-a-year magic</p></div><strong>₹749</strong></div>
-          <button class="order-button" data-product="Birthday Cheer Set" data-price="₹749">Order on WhatsApp ↗</button>
-        </article>
-        <article class="product-card" data-category="bouquet">
-          <div class="product-art art-lilac"><span class="art-tag">SOFT & SWEET</span><div class="mini-bouquet lilac-bouquet"><i>✿</i><i>✿</i><i>✿</i><i>✿</i><i>✿</i><b></b></div></div>
-          <div class="product-info"><div><h3>Lavender Daydream</h3><p>Gentle shades, lovely thoughts</p></div><strong>₹549</strong></div>
-          <button class="order-button" data-product="Lavender Daydream" data-price="₹549">Order on WhatsApp ↗</button>
-        </article>
-        <article class="product-card" data-category="gift">
-          <div class="product-art art-heart"><span class="art-tag">JUST BECAUSE</span><div class="heart-gift">♡<span>with love</span></div><span class="heart-spark">✧</span></div>
-          <div class="product-info"><div><h3>With Love Hamper</h3><p>A little reminder they matter</p></div><strong>₹699</strong></div>
-          <button class="order-button" data-product="With Love Hamper" data-price="₹699">Order on WhatsApp ↗</button>
-        </article>
-      </div>
-      <p class="price-note">Sample products and prices are for demonstration. Please update them to match your real catalogue.</p>
-    </section>
-
-    <section class="story-section section-pad" id="about">
-      <div class="story-art"><div class="story-flower">✿</div><div class="story-circle">GIVE<br>WITH<br><em>heart.</em></div><span class="story-spark">✧</span></div>
-      <div class="story-copy"><p class="eyebrow">A LITTLE ABOUT US</p><h2>Every gift tells<br><em>a little story.</em></h2><p>At Deveya Dairies, we believe the smallest gestures can mean the most. From a just-because bouquet to a thoughtful celebration box, we're here to help you make ordinary days feel special.</p><a class="text-link" href="#contact">Let's make someone smile ↗</a></div>
-    </section>
-
-    <section class="order-banner" id="contact">
-      <div><p class="eyebrow">HAVE A MOMENT TO CELEBRATE?</p><h2>Let's make it <em>beautiful.</em></h2><p>Tell us what you're dreaming of. We'll help you choose a thoughtful gift.</p></div>
-      <a class="button button-light" id="general-order" href="#">Chat with us on WhatsApp ↗</a>
-    </section>
-  </main>
-
-  <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">✿</span><span><strong>Deveya Dairies</strong><small>BOUQUETS & GIFTS</small></span></a><p>Made with love, for moments that matter.</p><span>© <span id="year"></span> Deveya Dairies</span></footer>
-  <script src="script.js"></script>
-</body>
-</html>
+<header class="header">
+<a class="brand" href="#home"><span class="flower">❀</span><span><strong>Deveya Dairies<span class="pink">♥</span></strong><small>Bouquet &amp; Gifts</small></span></a>
+<button class="menu" id="menu" aria-label="Open menu">☰</button>
+<nav id="nav"><a href="#home">Home</a><a href="#products">Bouquets</a><a href="#products">Gifts</a><a href="#giftcards">Gift Cards</a><a href="#chocolate">Chocolate Bouquets</a><a href="#about">About Us</a></nav>
+<button class="wa" id="headerWA">♡ Order on WhatsApp</button>
+</header>
+<main>
+<section class="hero" id="home">
+<div class="hero-copy"><p class="eyebrow">FRESH FLOWERS • THOUGHTFUL GIFTS • MADE WITH LOVE</p><h1>Make Every Moment<br><em>More Special</em> <span class="pink">♡</span></h1><p>Beautiful bouquets, thoughtful gifts, gift cards and chocolate bouquets — all in one place.</p><a class="button" href="#products">Shop Now →</a></div>
+<div class="hero-photo" role="img" aria-label="Beautiful pink flower bouquet"></div><div class="hero-note">Small gifts<br><em>Big happiness</em> ♡</div>
+</section>
+<section class="categories">
+<a href="#products"><span>💐</span>Bouquets <b>→</b></a><a href="#products"><span>🎁</span>Gifts <b>→</b></a><a href="#giftcards"><span>💌</span>Gift Cards <b>→</b></a><a href="#chocolate"><span>🍫</span>Chocolate Bouquets <b>→</b></a><a href="#products"><span>🧸</span>Teddy Bears <b>→</b></a>
+</section>
+<section class="products" id="products">
+<div class="heading"><span>— ♥ —</span><h2>Featured Products</h2><p>Handpicked with love, just for you</p></div>
+<div class="grid">
+<article class="card"><button class="heart" aria-label="Save item">♡</button><img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?auto=format&fit=crop&w=700&q=85" alt="Red roses bouquet" loading="lazy"><div class="info"><h3>Classic Red Roses Bouquet</h3><p>₹799</p><button class="add" data-name="Classic Red Roses Bouquet" data-price="799">＋ Add to Cart</button></div></article>
+<article class="card"><button class="heart" aria-label="Save item">♡</button><img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=700&q=85" alt="Pastel flower bouquet" loading="lazy"><div class="info"><h3>Pastel Dreams Bouquet</h3><p>₹699</p><button class="add" data-name="Pastel Dreams Bouquet" data-price="699">＋ Add to Cart</button></div></article>
+<article class="card"><button class="heart" aria-label="Save item">♡</button><img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=700&q=85" alt="Sunflowers" loading="lazy"><div class="info"><h3>Sunshine Bouquet</h3><p>₹749</p><button class="add" data-name="Sunshine Bouquet" data-price="749">＋ Add to Cart</button></div></article>
+<article class="card" id="chocolate"><button class="heart" aria-label="Save item">♡</button><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=85" alt="Wrapped chocolate gift" loading="lazy"><div class="info"><h3>Chocolate Bouquet</h3><p>₹899</p><button class="add" data-name="Chocolate Bouquet" data-price="899">＋ Add to Cart</button></div></article>
+<article class="card" id="giftcards"><button class="heart" aria-label="Save item">♡</button><img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=700&q=85" alt="Gift card and present" loading="lazy"><div class="info"><h3>Personalised Gift Cards</h3><p>₹199</p><button class="add" data-name="Personalised Gift Cards" data-price="199">＋ Add to Cart</button></div></article>
+<article class="card"><button class="heart" aria-label="Save item">♡</button><img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=700&q=85" alt="Wrapped gift with ribbon" loading="lazy"><div class="info"><h3>Thoughtful Gift Hamper</h3><p>₹999</p><button class="add" data-name="Thoughtful Gift Hamper" data-price="999">＋ Add to Cart</button></div></article>
+</div>
+<p class="cart" id="cart" aria-live="polite">Your cart is empty. Add something lovely! ♡</p><button class="button checkout" id="checkout">Order Cart on WhatsApp →</button>
+</section>
+<section class="benefits" id="about"><div>🚚 <strong>Fast &amp; Reliable Delivery</strong><small>Freshness guaranteed, always.</small></div><div>♥ <strong>Freshness Guaranteed</strong><small>Only the best for your loved ones.</small></div><div>✿ <strong>Custom Orders Available</strong><small>Make it truly yours.</small></div><div>★ <strong>Happy Customers</strong><small>Spreading smiles, one gift at a time.</small></div></section>
+</main>
+<footer><strong>Deveya Dairies <span class="pink">♥</span></strong><p>Bouquets and thoughtful gifts, made with love.</p><small>© <span id="year"></span> Deveya Dairies</small></footer>
+<button class="floating" id="floatingWA" aria-label="Order on WhatsApp">☏</button>
+<script src="script.js"></script>
+</body></html>
